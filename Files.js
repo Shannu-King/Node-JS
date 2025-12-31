@@ -1,42 +1,22 @@
 const fs = require('fs');
-// fs.writeFile('Example.txt',"Hi This is Shanmukh",(err)=>
-// {
-//     if(err)
-//         console.log(err);
-//     else
-//         console.log("data is written successfully");
-//      fs.appendFile('Example.txt',' I am a web developer',(err)=>{
-//     if(err)
-//         console.log(err);
-//     else
-//         console.log("data is appended successfully");
-//     fs.readFile('Example.txt','utf8',(err,data)=>{
-//      if(err)
-//         console.log(err);
-//     else
-//         console.log(data);
-//     fs.unlink('Example.txt',(err)=>
-// {
-//     console.log('File Deleted Sucessfully');
-// });
-   
-// });
 
+try {
+    // Write file
+    fs.writeFileSync('Shannu.txt', 'This is shannu file');
+    console.log("data written successfully");
 
-// });
+    // Read file
+    let data = fs.readFileSync('Shannu.txt', 'utf8');
+    console.log(data);
 
-// });
-fs.unlink('Shanmukh/shanmukh1.txt',(err)=>
-{ fs.unlink('Example.txt',(err)=>
- {
-     console.log('File Deleted Sucessfully');
- });
+    // Append text
+    fs.appendFileSync('Shannu.txt', ' This is appended text into shannu file');
+    console.log("data appended successfully");
 
-})
-fs.rmdir('Shanmukh',(err)=>
-{
-    if(err)
-        console.log(err);
-    else
-        console.log("Folder Deleted Sucessfully");
-});
+    // Read again
+    data = fs.readFileSync('Shannu.txt', 'utf8');
+    console.log(data);
+
+} catch (err) {
+    console.error("Error:", err);
+}
